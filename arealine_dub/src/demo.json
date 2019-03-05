@@ -1,0 +1,50 @@
+{
+	"success":true,
+	"yest":12,
+	"today":4509,
+	"data":[
+				  {
+				    "time": "10:00",
+				    "yesterday": 40,
+				    "today": 49
+				  },
+				  {
+				    "time": "11:00",
+				    "yesterday": 100,
+				    "today": 51
+				  },
+				  {
+				    "time": "12:00",
+				    "yesterday": 152,
+				    "today": 70
+				  },
+				  {
+				    "time": "13:00",
+				    "yesterday": 280,
+				    "today": 140
+				  },
+				  {
+				    "time": "14:00",
+				    "yesterday": 350,
+				    "today": 83
+				  },
+				  {
+				    "time": "15:00",
+				    "yesterday": 270,
+				    "today": 93
+				  },
+				  {
+				    "time": "16:00",
+				    "yesterday": 220,
+				    "today": 15
+				  },
+				  {
+				    "time": "17:00",
+				    "yesterday": 105,
+				    "today": 40
+				  }
+				  
+				  
+				 
+		]
+}
