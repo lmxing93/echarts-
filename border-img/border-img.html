@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>背景图片拉伸中间不拉伸四角</title>
+		<style type="text/css">
+			#cont{
+				width: 400px;
+				height: 300px;
+				background: url(images/bg.png) no-repeat;
+				background-size: 100% 100%;
+				border: 26px solid rgba(255,255,255,0);
+				border-image: url(images/bb.png) 26 stretch;
+				-webkit-border-image:url(images/bb.png) 26 stretch;
+				-moz-border-image:url(images/bb.png) 26 stretch;
+				-o-border-image:url(images/bb.png) 26 stretch;
+			}
+			#button{
+				width: 150px;
+				cursor: pointer;
+				border: 1px solid #ccc;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+			
+		</div>
+		<input type="" name="ww" id="ww" value="400" />
+		<input type="" name="hh" id="hh" value="300" />
+		<div id="button">
+			点击修改边框宽高
+		</div>
+	</body>
+	<script type="text/javascript">
+		function changeWH(){
+			const dom = document.getElementById("cont");
+			let w = parseInt(window.getComputedStyle(dom).width);
+			let h = parseInt(window.getComputedStyle(dom).height);
+			console.log(w);
+		}
+		function clickEvt(){
+			const dombt = document.getElementById("button");
+			dombt.onclick = function(){
+				const wdom = document.getElementById("ww");
+				const hdom = document.getElementById("hh");
+				let val1 = wdom.value;
+				let val2 = hdom.value;
+				console.log(val1,val2);
+				
+				const dom = document.getElementById("cont");
+				dom.style.width = val1 + 'px';  
+				dom.style.height = val2 + 'px';
+
+			}
+		}
+	
+		clickEvt();
+	</script>
+</html>
