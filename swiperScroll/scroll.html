@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>swiper实现图片无缝滚动</title>
+		<!-- 
+			https://www.bootcdn.cn/Swiper/
+		-->
+		<link href="https://cdn.bootcss.com/Swiper/4.4.6/css/swiper.css" rel="stylesheet">
+		<script src="https://cdn.bootcss.com/Swiper/4.4.6/js/swiper.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+		<style>
+		   .student-swiper {
+		        position: relative;
+		    }
+		    .student-swiper-container {
+		        position: relative;
+		        overflow: hidden;
+		        
+		    }
+		    .swiper-button-next {
+		        right: -42px;
+		    }
+		    .swiper-button-prev {
+		        left: -42px;
+		    }
+		    .swiper-slide {
+		    		border: 1px solid #ccc;
+		            width: 442px;
+		            text-align: center;
+		            line-height: 2em;
+		            background: #ccc;
+		        }
+		   
+		    .swiper-slide-img {
+		        height: 276px;
+		        overflow: hidden;
+		        background: #fff;
+		        border: 6px solid #fff;
+		        
+		    }
+		    img {
+		            width: 100%;
+		        }
+		</style>
+	</head>
+	<body>
+		<div class="service-part04">
+    <div class="center w1100">
+        <div class="student-swiper">
+            <h4 class="service-title"><span>学员风采</span></h4>
+            <div class="student-swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-img">
+                            <img src="images/bb.png" alt="">
+                        </div>
+                        <p>第01届高电压试验技术培训班</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-img">
+                            <img src="images/bb.png" alt="">
+                        </div>
+                        <p>第01届高电压试验技术培训班</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-img">
+                            <img src="images/bb.png" alt="">
+                        </div>
+                        <p>第01届高电压试验技术培训班</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-img">
+                            <img src="images/bb.png" alt="">
+                        </div>
+                        <p>第01届高电压试验技术培训班</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-img">
+                            <img src="images/bb.png" alt="">
+                        </div>
+                        <p>第01届高电压试验技术培训班</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <script>
+                $(function() {
+                    new Swiper('.student-swiper .student-swiper-container', {
+                        watchSlidesProgress: true,
+                        slidesPerView: 'auto',
+                        centeredSlides: true,
+                        loop: true,
+                        loopedSlides: 5,
+                        autoplay: {
+                            delay: 5000,
+                            stopOnLastSlide: false,
+                            disableOnInteraction: true,
+                        },
+                        navigation: {
+                            nextEl: '.student-swiper .swiper-button-next',
+                            prevEl: '.student-swiper .swiper-button-prev',
+                        },
+                        on: {
+                            progress: function(progress) {
+                                console.log(progress)
+                                for (i = 0; i < this.slides.length; i++) {
+                                    var slide = this.slides.eq(i);
+                                    var slideProgress = this.slides[i].progress;
+                                    modify = 1;
+                                    if (Math.abs(slideProgress) > 1) {
+                                        modify = (Math.abs(slideProgress) - 1) * 0.3 + 1;
+                                    }
+                                    //长度 221是每个swiper-slide宽度的一半
+                                    translate = slideProgress * modify * 221 + 'px';
+                                    scale = 1 - Math.abs(slideProgress) / 5;
+                                    zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
+                                    slide.transform('translateX(' + translate + ') scale(' + scale + ')');
+                                    slide.css('zIndex', zIndex);
+                                    slide.css('opacity', 1);
+                                    if (Math.abs(slideProgress) > 3) {
+                                        slide.css('opacity', 0);
+                                    }
+                                }
+                            },
+                            setTransition: function(transition) {
+                                for (var i = 0; i < this.slides.length; i++) {
+                                    var slide = this.slides.eq(i)
+                                    slide.transition(transition);
+                                }
+
+                            }
+                        }
+
+                    })
+
+                })
+            </script>
+        </div>
+
+    </div>
+
+</div>
+	</body>
+	
+</html>
