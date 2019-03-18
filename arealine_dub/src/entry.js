@@ -65,11 +65,11 @@ function initData(){
 			dataSet.push({
 				"x":item.time,
 				"y":item.yesterday,
-				"z":"昨日访问量"
+				"z":"昨日"
 			},{
 				"x":item.time,
 				"y":item.today,
-				"z":"实时访问量"
+				"z":"实时"
 			})
 		})
 		//console.log(dataSet);
@@ -86,8 +86,8 @@ function initData(){
 function initNum(){
 	let yest = _formatNum(this.yestSum+'');
 	let cur = _formatNum(this.todaySum+'') ;
-	let _html = `<span class="txt1">昨日访问量</span><span class="num1">&nbsp;&nbsp;${yest}</span>
-				<span class="txt2">实时访问量</span><span class="num2">&nbsp;&nbsp;${cur}</span>`;
+	let _html = `<span class="txt1">昨日</span><span class="num1">&nbsp;&nbsp;${yest}</span>
+				<span class="txt2">实时</span><span class="num2">&nbsp;&nbsp;${cur}</span>`;
 	
 	$('#numCont').html(_html);
 }
